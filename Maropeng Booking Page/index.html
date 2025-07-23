@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maropeng School Tour Booking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0066cc;
+      --secondary: #003366;
+      --light-bg: #f0f8ff;
+      --white: #fff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light-bg);
+    }
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px;
+      border-radius: 2px;
+    }
+    .nav-links {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background: var(--primary);
+        right: 0;
+        top: 64px;
+        width: 100%;
+        padding: 1rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    main {
+      max-width: 960px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    section {
+      background: var(--white);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      background: var(--primary);
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .services ul, .services ul ul {
+      margin-left: 1.5rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Maropeng School Tour</h1>
+    <nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#map">Map</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="services" class="services">
+      <h2>📌 Services Offered – Maropeng School Tour</h2>
+      <ul>
+        <li><strong>Ticket Price:</strong> R125 per learner – includes full guided tour.</li>
+        <li><strong>Tour Duration:</strong> 45 minutes to 1 hour.</li>
+        <li><strong>Includes:</strong>
+          <ul>
+            <li>Intro to Theory of Evolution and Big Bang.</li>
+            <li>Fossil reconstruction display.</li>
+            <li>Time tunnel experience to 4.6 billion years ago.</li>
+            <li>Artificial boat ride through Water, Air, Earth, Fire.</li>
+            <li>Interactive museum activities.</li>
+          </ul>
+        </li>
+        <li><strong>Accommodation (Hominid House):</strong> 120 learners + 6 teachers overnight.</li>
+        <li><strong>Lunch Pack Options:</strong>
+          <ul>
+            <li><strong>Option 1:</strong> Sandwiches & fruit.</li>
+            <li><strong>Option 2:</strong> Sandwiches, fruit, juice.</li>
+            <li><strong>Option 3:</strong> Full meal with snacks & juice.</li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>Note:</strong> Add accommodation/lunch preferences in notes when booking.</p>
+    </section>
+
+    <section id="booking">
+      <h2>Booking Form</h2>
+      <form>
+        <label>School Name</label>
+        <input type="text" required />
+
+        <label>Contact Person</label>
+        <input type="text" required />
+
+        <label>Email Address</label>
+        <input type="email" required />
+
+        <label>Number of Students</label>
+        <input type="number" required />
+
+        <label>Preferred Tour Date</label>
+        <input type="date" required />
+
+        <label>Additional Notes</label>
+        <textarea rows="4"></textarea>
+
+        <button type="submit">Submit Booking</button>
+      </form>
+    </section>
+
+    <section id="map">
+      <h2>Map – Plan Your Route</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.7777264090385!2d27.666543014723463!3d-25.967517983519397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebadf81fa0a841f%3A0x2c535ec6147baf9!2sMaropeng%20Visitor%20Centre!5e0!3m2!1sen!2sza!4v1658760912345!5m2!1sen!2sza"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </section>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
+
